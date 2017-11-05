@@ -1,0 +1,2 @@
+docker run --rm -i --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex latexmk -c $1
+rm ${1%.tex}.dvi

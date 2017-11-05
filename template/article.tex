@@ -1,0 +1,73 @@
+\documentclass[uplatex,11pt]{jsarticle}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{comment}
+%\usepackage{listings, jlisting}
+\usepackage{amsmath, amssymb}
+\usepackage{wrapfig}
+\usepackage{fancybox}
+\usepackage{ascmac}
+
+\setlength\floatsep{5pt}
+\setlength\textfloatsep{5pt}
+\setlength\intextsep{5pt}
+\setlength\abovecaptionskip{0pt}
+
+\newcommand{\fg}[3]{ % \fg{label}{path}{caption},
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=\textwidth]{./figs/#2}
+            \caption{#3}
+            \label{#1}
+        \end{center}
+    \end{figure}
+}
+
+\newcommand{\dummyfig}[2]{
+    \begin{figure}
+        \begin{center}
+            \begin{shadebox}
+                手書きの図のため、巻末に添付
+            \end{shadebox}
+            \caption{#2}
+            \label{#1}
+        \end{center}
+    \end{figure}
+}
+
+\newcommand{\cir}[3]{ % \fg{label}{path}{caption},
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{./figs/#2}
+            \caption{#3}
+            \label{#1}
+         \end{center}
+    \end{figure}
+}
+
+\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
+    \begin{table}[htb]
+          \begin{center}
+            \csvautotabular{./data/#2}
+            \caption{#3}
+            \label{#1}
+          \end{center}
+    \end{table}
+}
+
+\newcommand{\fr}[1]{図\ref{#1}}
+\newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\er}[1]{式(\ref{#1})}
+
+\begin{document}
+
+\section{目的}
+\section{原理}
+\section{装置}
+\section{方法}
+\section{データ}
+\section{解析}
+\section{考察}
+\section{結論}
+
+\end{document}

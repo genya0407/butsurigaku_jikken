@@ -1,0 +1,2 @@
+mkdir $1
+cp -a template/. $1/
