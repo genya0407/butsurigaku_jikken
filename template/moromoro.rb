@@ -1,6 +1,7 @@
 require 'erb'
 require 'rbplotly'
 require 'csv'
+require "numo/gnuplot"
 
 class String
   def to_df
@@ -49,18 +50,26 @@ TEMPLATE
     self.map { |row| row[col_name] }
   end
   
-  def to_plotly(targets: [{ x: 'x', y: 'y', name: nil }], type: :scatter, mode: :markers, layout: {})
+  def plot(targets: [{ x: 'x', y: 'y', name: nil }], type: :scatter, mode: :markers, layout: {}, file: nil)
     data = targets.map do |target|
       x_axis_name = target[:x]
       y_axis_name = target[:y]
-      xs = self.map { |row| row[x_axis_name] }
-      ys = self.map { |row| row[y_axis_name] }
-      trace = { x: xs, y: ys, type: type, mode: mode, name: target[:name] }
+      xs = by_col(x_axis_name)
+      ys = by_col(y_axis_name)
 
-      trace
+      [xs, ys]
     end
 
-    Plotly::Plot.new(data: data, layout: layout)
+    if file
+      Numo.gnuplot do
+        output file
+        plot *data
+      end
+    end
+
+    Numo.noteplot do
+      plot *data
+    end
   end
   
   def save_csv(filename)
