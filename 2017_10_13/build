@@ -1,2 +1,6 @@
-docker run --rm -i --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex latexmk -c $1
+docker run --rm -it --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex latexmk $1
 rm ${1%.tex}.dvi
+rm ${1%.tex}.aux
+rm ${1%.tex}.fls
+rm ${1%.tex}.fdb_latexmk
+rm ${1%.tex}.log
