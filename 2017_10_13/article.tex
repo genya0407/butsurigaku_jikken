@@ -7,7 +7,7 @@
 \usepackage{wrapfig}
 \usepackage{fancybox}
 \usepackage{ascmac}
-\usepackage{csvsimple}
+\usepackage{subfig}
 
 \setlength\floatsep{5pt}
 \setlength\textfloatsep{5pt}
@@ -46,13 +46,12 @@
     \end{figure}
 }
 
-\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
+\newcommand{\tab}[4]{ % \tab{label}{csv-path}{caption}{分割数}
     \begin{table}[htb]
-          \begin{center}
-            \csvautotabular{./csv/#2}
-            \caption{#3}
-            \label{#1}
-          \end{center}
+        \centering
+        \input{|"ruby ./convert_csv.rb #2 #4"}
+        \caption{#3}
+        \label{#1}
     \end{table}
 }
 
@@ -158,7 +157,7 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \section{データ}
 \subsection{ホール素子の較正}
 
-\tab{b_1}{./jikken_b_1.csv}{hoge}
+\tab{b_1}{./csv/jikken_b_1.csv}{hoge}{3}
 
 \subsection{ソレノイドコイルの磁場の測定}
 
