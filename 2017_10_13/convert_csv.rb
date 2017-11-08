@@ -2,6 +2,7 @@ require 'csv'
 
 filepath = ARGV[0]
 tabular_count = ARGV[1].to_i
+caption = ARGV[2]
 
 table = CSV.readlines(filepath, headers: true)
 headers = table.headers
@@ -16,7 +17,7 @@ latex_tabulars = all_rows.each_slice(rows_count_for_each_tabular).map do |rows|
   \\subfloat{
   \\begin{tabular}{|#{"c|" * headers.count}}
     \\hline
-    #{headers.join(' & ')} \\\\ \\hline \\hline
+    #{headers.map{|h| "$ #{h} $"}.join(' & ')} \\\\ \\hline \\hline
     #{latex_rows} \\\\ \\hline
   \\end{tabular}
   }

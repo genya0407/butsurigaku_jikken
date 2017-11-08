@@ -46,6 +46,10 @@
     \end{figure}
 }
 
+\newcommand{\subtabs}[2]{
+    \input{|"ruby ./convert_csv.rb #1 1 '#2'"}
+}
+
 \newcommand{\tab}[4]{ % \tab{label}{csv-path}{caption}{分割数}
     \begin{table}[htb]
         \centering
@@ -148,18 +152,22 @@ $I_H$を一定の大きさ($I_H = 10mA$)に固定してからソレノイドコ�
 
 $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコイルの中心に設置した。
 
-その後、ホール素子をソレノイドコイルの中心軸に沿って移動させていき、中心からの距離$x[m]$における$V_H$を測定した。
+その後、ホール素子をソレノイドコイルの中心軸(x軸)に沿って移動させていき、中心からの距離$x[m]$における$V_H$を測定した。
 
 \subsubsection{中心軸と垂直な軸に沿った磁場の分布}
-
-ソレノイドコイルの開口部近傍で、ホール素子を中心軸と垂直な向きに動かし、その位置$y[m]$における$V_H$を測定した。
+ソレノイドコイルの開口部近傍で、ホール素子を中心軸と垂直な軸(y軸)に沿って動かし、その位置$y[m]$における$V_H$を測定した。
 
 \section{データ}
 \subsection{ホール素子の較正}
 
+\tab{a_2}{./csv/jikken_a_2.csv}{ $H=0[A/m]$の元での$I_H$と$V_H$の関係 }{1}
+\tab{a_3}{./csv/jikken_a_3.csv}{ $H=20000[A/m]$の元での$I_H$と$V_H$の関係 }{1}
+\tab{3_4}{./csv/jikken_a_4.csv}{ $I_H = 10[mA]$の元での$I_{mag}$と$V_H$の関係 }{1}
+
 \subsection{ソレノイドコイルの磁場の測定}
 
-\tab{b_1}{./csv/jikken_b_1.csv}{中心軸に沿った磁場の分布}{5}
+\tab{b_1}{./csv/jikken_b_1.csv}{x軸に沿った磁場の分布}{3}
+\tab{b_2}{./csv/jikken_b_2.csv}{y軸に沿った磁場の分布}{3}
 
 \section{解析}
 % グラフ書いたり
