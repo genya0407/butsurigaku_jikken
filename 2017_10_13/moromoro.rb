@@ -53,7 +53,9 @@ TEMPLATE
   def plot(targets: [{ x: 'x', y: 'y', title: nil }], options: {}, file: nil)
     default_options = {
       nokey: '',
-      tics: 'font ",15"',
+      tics: 'scale 3 font ",15"',
+      mxtics: '',
+      mytics: '',
       grid: 'x y'
     }
     options = default_options.merge(options)
