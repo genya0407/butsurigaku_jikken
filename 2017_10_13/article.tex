@@ -19,7 +19,7 @@
         \begin{center}
             \includegraphics[width=\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
@@ -31,7 +31,7 @@
                 手書きの図のため、巻末に添付
             \end{shadebox}
             \caption{#2}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
@@ -39,9 +39,9 @@
 \newcommand{\cir}[3]{ % \cir{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=0.7\textwidth]{./figs/#2}
+            \includegraphics[width=0.7\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
          \end{center}
     \end{figure}
 }
@@ -53,14 +53,14 @@
 \newcommand{\tab}[4]{ % \tab{label}{csv-path}{caption}{分割数}
     \begin{table}[htb]
         \centering
-        \input{|"ruby ./convert_csv.rb #2 #4"}
         \caption{#3}
-        \label{#1}
+        \input{|"ruby ./convert_csv.rb #2 #4"}
+        \label{tab_#1}
     \end{table}
 }
 
-\newcommand{\fr}[1]{図\ref{#1}}
-\newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\fr}[1]{図\ref{fg_#1}}
+\newcommand{\tr}[1]{表\ref{tab_#1}}
 \newcommand{\er}[1]{式(\ref{#1})}
 
 \begin{document}
@@ -107,7 +107,7 @@
 
 \begin{eqnarray}
     H & = & \int_{x + l}^{x - l} H_1(x^{\prime}) ndx^{\prime} \\
-      & = & \frac{nI}{2} \left( \frac{x + l}{} \right)
+      & = & \frac{nI}{2} \left[ \frac{x + l}{\sqrt{a^2+(x+l)^2}} - \frac{x - l}{\sqrt{a^2+(x-l)^2}} \right]
 \end{eqnarray}
 
 と表される。ただし、$n$は単位長さあたりのコイルの巻数、$l$はソレノイドコイルの長さ、$I$はソレノイドコイルに流れる電流の大きさである。
@@ -162,7 +162,7 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 
 \tab{a_2}{./csv/jikken_a_2.csv}{ $H=0[A/m]$の元での$I_H$と$V_H$の関係 }{1}
 \tab{a_3}{./csv/jikken_a_3.csv}{ $H=20000[A/m]$の元での$I_H$と$V_H$の関係 }{1}
-\tab{3_4}{./csv/jikken_a_4.csv}{ $I_H = 10[mA]$の元での$I_{mag}$と$V_H$の関係 }{1}
+\tab{a_4}{./csv/jikken_a_4.csv}{ $I_H = 10[mA]$の元での$I_{mag}$と$V_H$の関係 }{1}
 
 \subsection{ソレノイドコイルの磁場の測定}
 
@@ -170,14 +170,22 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \tab{b_2}{./csv/jikken_b_2.csv}{y軸に沿った磁場の分布}{3}
 
 \section{解析}
-% グラフ書いたり
 \subsection{ホール素子の較正}
 
-\fg{a_2}{./graph/jikken_a_2.png}{ $H=0[A/m]$の元での$I_H$と$V_H$の関係 }
-\fg{a_3}{./graph/jikken_a_3.png}{ $H=20000[A/m]$の元での$I_H$と$V_H$の関係 }
-% \fg{a_4}{./graph/jikken_a_4.png}{ $I_H = 10[mA]$の元での$H$と$V_H$の関係 }
+\tr{a_2}、\tr{a_3}、\tr{a_4}をグラフにしたものが\fr{a_2}、\fr{a_3}\fr{a_4}である。
+
+\cir{a_2}{./graph/jikken_a_2.png}{ $ H=0[A/m] $の元での$I_H$と$V_H$の関係 }
+\cir{a_3}{./graph/jikken_a_3.png}{ $ H=20000[A/m] $の元での$I_H$と$V_H$の関係 }
+\cir{a_4}{./graph/jikken_a_4.png}{ $ I_H = 10[mA] $の元での$H$と$V_H$の関係 }
 
 \subsection{ソレノイドコイルの磁場の測定}
+
+\tr{b_1}、\tr{b_2}をグラフにしたものが\fr{b_1}、\fr{b_2}である。ただし、\fr{b_2}については、$V_H = 0$となる点である$y_0=0.21m$を中心とした。すなわち、$y^{\prime} = y - 0.21m$とした。
+
+\cir{b_1}{./graph/jikken_b_1.png}{ x軸に沿った磁場の分布 }
+\cir{b_2}{./graph/jikken_b_2.png}{ y軸に沿った磁場の分布(ただし、y=0.21mを中心とした) }
+
+また、
 
 \section{考察}
 \section{結論}
