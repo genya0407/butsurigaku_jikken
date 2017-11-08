@@ -73,20 +73,21 @@ TEMPLATE
 
     if file
       Numo.gnuplot do
-        output file
+        set terminal: 'png'
+        set output: file
 
         options.each do |k, v|
           set k, v
         end
         plot *data
       end
-    end
-
-    Numo.noteplot do
-      options.each do |k, v|
-        set k, v
+    else
+      Numo.noteplot do
+        options.each do |k, v|
+          set k, v
+        end
+        plot *data
       end
-      plot *data
     end
   end
   

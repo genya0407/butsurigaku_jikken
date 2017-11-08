@@ -107,7 +107,7 @@
 
 \begin{eqnarray}
     H & = & \int_{x + l}^{x - l} H_1(x^{\prime}) ndx^{\prime} \\
-      & = & \frac{nI}{2} \left[ \frac{x + l}{\sqrt{a^2+(x+l)^2}} - \frac{x - l}{\sqrt{a^2+(x-l)^2}} \right]
+      & = & \frac{nI}{2} \left[ \frac{x + l}{\sqrt{a^2+(x+l)^2}} - \frac{x - l}{\sqrt{a^2+(x-l)^2}} \right] \label{eq_solenoid_theoretical}
 \end{eqnarray}
 
 と表される。ただし、$n$は単位長さあたりのコイルの巻数、$l$はソレノイドコイルの長さ、$I$はソレノイドコイルに流れる電流の大きさである。
@@ -172,7 +172,7 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \section{解析}
 \subsection{ホール素子の較正}
 
-\tr{a_2}、\tr{a_3}、\tr{a_4}をグラフにしたものが\fr{a_2}、\fr{a_3}\fr{a_4}である。
+\tr{a_2}、\tr{a_3}、\tr{a_4}をグラフにしたものが\fr{a_2}、\fr{a_3}、\fr{a_4}である。
 
 \cir{a_2}{./graph/jikken_a_2.png}{ $ H=0[A/m] $の元での$I_H$と$V_H$の関係 }
 \cir{a_3}{./graph/jikken_a_3.png}{ $ H=20000[A/m] $の元での$I_H$と$V_H$の関係 }
@@ -180,12 +180,28 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 
 \subsection{ソレノイドコイルの磁場の測定}
 
-\tr{b_1}、\tr{b_2}をグラフにしたものが\fr{b_1}、\fr{b_2}である。ただし、\fr{b_2}については、$V_H = 0$となる点である$y_0=0.21m$を中心とした。すなわち、$y^{\prime} = y - 0.21m$とした。
+\tr{b_1}、\tr{b_2}をグラフにしたものが\fr{b_1}、\fr{b_2}である。ただし、\fr{b_2}については、$V_H = 0$となる点である$y_0=0.21m$を中心としてグラフを描いた。すなわち、$y^{\prime} = y - y_0$とした。
 
 \cir{b_1}{./graph/jikken_b_1.png}{ x軸に沿った磁場の分布 }
 \cir{b_2}{./graph/jikken_b_2.png}{ y軸に沿った磁場の分布(ただし、y=0.21mを中心とした) }
 
-また、
+また、$ \frac{dH}{dx} $と$ \frac{dH}{dy} $を、
+
+\[
+    \frac{dH}{dx} \approx \frac{\Delta H}{ \Delta x }
+\]
+
+によって近似的に求め、グラフにプロットしたものが\fr{b_1_differential}、\fr{b_2_differential}である。
+このときも、$y^{\prime} = y - y_0$とした。
+
+\cir{b_1_differential}{./graph/jikken_b_1_differential.png}{ $\frac{dH}{dx}$の分布 }
+\cir{b_2_differential}{./graph/jikken_b_2_differential.png}{ $\frac{dH}{dy}$の分布(ただし、y=0.21mを中心とした) }
+
+また、\er{eq_solenoid_theoretical}から、x軸に沿った磁場の分布の理論値を求め、\fr{b_1}と重ねてグラフを描いたのが\fr{b_1_theoretical_comparizon}であり、その相対誤差をグラフにしたのが\fr{b_1_relative_error}で、絶対誤差をグラフにしたのが\fr{b_1_absolute_error}である。
+
+\cir{b_1_theoretical_comparizon}{./graph/jikken_b_1_theoretical_comparizon.png}{ x軸に沿った磁場の分布とその理論値 }
+\cir{b_1_relative_error}{./graph/jikken_b_1_relative_error.png}{ x軸に沿った磁場の分布の相対誤差 }
+\cir{b_1_absolute_error}{./graph/jikken_b_1_absolute_error.png}{ x軸に沿った磁場の分布の絶対誤差 }
 
 \section{考察}
 \section{結論}
