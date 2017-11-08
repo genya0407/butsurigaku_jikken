@@ -83,13 +83,12 @@ TEMPLATE
         end
         plot *data
       end
-    else
-      Numo.noteplot do
-        options.each do |k, v|
-          set k, v
-        end
-        plot *data
+    end
+    Numo.noteplot do
+      options.each do |k, v|
+        set k, v
       end
+      plot *data
     end
   end
   
