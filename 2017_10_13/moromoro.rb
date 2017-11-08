@@ -52,9 +52,16 @@ TEMPLATE
   
   def plot(targets: [{ x: 'x', y: 'y', title: nil }], options: {}, file: nil)
     default_options = {
-
+      nokey: '',
+      tics: 'font ",15"',
+      grid: 'x y'
     }
-
+    options = default_options.merge(options)
+    [:xl, :yl].each do |label_name|
+      if not options[label_name].nil?
+        options[label_name] = "'#{options[label_name]}' font ',20'"
+      end
+    end
     data = targets.map do |target|
       x_axis_name = target[:x]
       y_axis_name = target[:y]

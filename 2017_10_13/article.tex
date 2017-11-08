@@ -17,7 +17,7 @@
 \newcommand{\fg}[3]{ % \fg{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=\textwidth]{./figs/#2}
+            \includegraphics[width=\textwidth]{#2}
             \caption{#3}
             \label{#1}
         \end{center}
@@ -172,6 +172,10 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \section{解析}
 % グラフ書いたり
 \subsection{ホール素子の較正}
+
+\fg{a_2}{./graph/jikken_a_2.png}{ $H=0[A/m]$の元での$I_H$と$V_H$の関係 }
+\fg{a_3}{./graph/jikken_a_3.png}{ $H=20000[A/m]$の元での$I_H$と$V_H$の関係 }
+% \fg{a_4}{./graph/jikken_a_4.png}{ $I_H = 10[mA]$の元での$H$と$V_H$の関係 }
 
 \subsection{ソレノイドコイルの磁場の測定}
 
