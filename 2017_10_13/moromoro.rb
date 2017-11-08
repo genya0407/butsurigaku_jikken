@@ -93,17 +93,29 @@ TEMPLATE
   end
   
   def slope(x:, y:)
-    xs = by_col(x).to_a
-    ys = by_col(y).to_a
-
+    xs, ys = fetch_xy(x, y)
     cov(xs, ys)/variance(xs)
   end
 
   def segment(x:, y:)
-    xs = by_col(x).to_a
-    ys = by_col(y).to_a
-
+    xs, ys = fetch_xy(x, y)
     ys.mean - slope(x: x, y: y) * xs.mean
+  end
+
+  def integral(x:, y:)
+    xs, ys = fetch_xy(x, y)
+    """
+    xs.drop(1).zip(xs).zip(ys.drop(1)).map do |(x1, x0), y|
+      y * (x1 - x0)
+    end.inject(:+)
+    """
+    xys = xs.zip(ys)
+    xys.drop(1).zip(xys).map do |xy1, xy0|
+      x0, y0 = xy0
+      x1, y1 = xy1
+
+      (y1 + y0) * (x1 - x0) / 2.0
+    end.inject(:+)
   end
 
   def save_csv(filename)
@@ -114,6 +126,14 @@ TEMPLATE
       end
     end
     filename
+  end
+
+  private
+  def fetch_xy(x, y)
+    xs = by_col(x).to_a
+    ys = by_col(y).to_a
+
+    [xs, ys]
   end
 end
 

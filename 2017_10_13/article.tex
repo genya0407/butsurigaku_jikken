@@ -8,6 +8,7 @@
 \usepackage{fancybox}
 \usepackage{ascmac}
 \usepackage{subfig}
+\usepackage{url}
 
 \setlength\floatsep{5pt}
 \setlength\textfloatsep{5pt}
@@ -185,7 +186,6 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \cir{b_1}{./graph/jikken_b_1.png}{ x軸に沿った磁場の分布 }
 \cir{b_2}{./graph/jikken_b_2.png}{ y軸に沿った磁場の分布(ただし、y=0.21mを中心とした) }
 
-\begin{comment}
 また、$ \frac{dH}{dx} $と$ \frac{dH}{dy} $を、
 
 \[
@@ -198,8 +198,6 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 \cir{b_1_differential}{./graph/jikken_b_1_differential.png}{ $\frac{dH}{dx}$の分布 }
 \cir{b_2_differential}{./graph/jikken_b_2_differential.png}{ $\frac{dH}{dy}$の分布(ただし、y=0.21mを中心とした) }
 
-\end{comment}
-
 また、\er{eq_solenoid_theoretical}から、x軸に沿った磁場の分布の理論値を求め、\fr{b_1}と重ねてグラフを描いたのが\fr{b_1_theoretical_comparizon}であり、その相対誤差をグラフにしたのが\fr{b_1_relative_error}で、絶対誤差をグラフにしたのが\fr{b_1_absolute_error}である。
 
 \cir{b_1_theoretical_comparizon}{./graph/jikken_b_1_theoretical_comparizon.png}{ x軸に沿った磁場の分布とその理論値 }
@@ -208,7 +206,89 @@ $I_H = 10mA$、$I_mag = 1.0A$で固定し、ホール素子をソレノイドコ
 
 \section{考察}
 
+\subsection{x軸上の磁場分布について}
+
+\fr{b_1_theoretical_comparizon}を見ると実験結果と理論値は概ね一致しているように見えるが、その相対誤差を取ると(\fr{b_1_relative_error})、xが増大するに連れて急激に増大していることが分かる。
+
+ここで、絶対誤差のグラフ\fr{b_1_absolute_error}を見ると、xが大きい場所では$H \approx 124[A/m]$でほぼ一定となっていることが分かる。
+これより、実験結果の磁場の大きさから$ H = 124[A/m] $を引いた上で理論値との相対誤差を取り、グラフにしたのが\fr{b_1_relative_error_with_offset}である。
+
+\fr{b_1_relative_error_with_offset}を見ると、高々10\%程度の誤差に収まっていることがわかる。
+また、高めの誤差が出ている場所は、$x = 0.2[m]$付近と$x = 0.4[m]$付近の二箇所である。
+前者に関しては、xに対してHが急激に変化している領域であり、xの誤差にHが過敏に反応しているものと考えられる。
+後者に関しては、H自体が非常に小さな値であるため、測定誤差が大きく影響しているものだと考えられる。
+
+\cir{b_1_relative_error_with_offset}{./graph/jikken_b_1_relative_error_with_offset.png}{ x軸に沿った磁場の分布の相対誤差(Hから一定値を引いたもの) }
+
+では、$ H = 124[A/m] $とは何か。
+
+まず考えられるのが、地磁気の影響である。理科年表オフィシャルサイトの記述から、京都での地磁気の大きさは$5 \times 10^(-5) [T] = 0.5 [G] = 40 [A/m]$程度であると推定できる。この値は、$H = 124[A/m]$と概ねオーダーが一致している。
+
+また、他の原因として考えられるのは、$V_H$を測定する端子が僅かにずれてしまい、$V_H$だけでなく$I_H$による電圧降下も測定してしまっているという可能性である。
+これに関しては、ホール素子の形状や素材が詳しくわからないため評価することができない。
+
+\subsection{磁場の発散}
+
+ソレノイドコイルの口部分における磁場の発散${\rm div} {\bf H}$を求める。
+
+磁場のxz面での対称性より$\frac{\partial H_y}{\partial y} = \frac{\partial H_z}{\partial z}$とし、$\frac{\partial H_x}{\partial x} = \frac{\Delta H_x}{\Delta x}$と近似すると、
+
+\begin{eqnarray*}
+    {\rm div} {\bf H} & = & \frac{\partial H_x}{\partial x} + \frac{\partial H_y}{\partial y} + \frac{\partial H_z}{\partial z} \\
+                      & \approx & \frac{\Delta H_x}{\Delta x} + 2\frac{\Delta H_y}{\Delta y}
+\end{eqnarray*}
+
+となる。
+これより、$(x, y) = (0.145, 0.210)$である点(コイルの口部分)に関して${\rm div} {\bf H}$を求めると、
+
+\begin{eqnarray*}
+    {\rm div} {\bf H} & = & \frac{\Delta H_x}{\Delta x} + 2\frac{\Delta H_y}{\Delta y} \\
+                      & = & \frac{9.67 \times 10^3 - 1.18 \times 10^4}{0.150 - 0.145} + 2\frac{3.40 \times 10 ^2 - (-5.18 \times 10)}{0.215 - 0.210} \\
+                      & = & -4.31 \times 10^5 + 2 \times 7.84 \times 10 ^ 4
+                      & = & - 2.74 \times 10^5
+\end{eqnarray*}
+
+となる。磁場は湧き出しが存在しないので${\rm div} {\bf H} = 0$となるはずであり、実験結果と一致しないことが分かる。
+
+この原因として考えられるのは、x軸上での磁場の値を計測した地点とy軸上での磁場の値を計測した地点にズレがあるということである。
+というのも、\fr{b_1_differential}や\fr{b_2_differential}を見ると分かる通り、$(x, y) = (0.145, 0.210)$付近の点は、$\frac{\Delta H_x}{\Delta x}$、$\frac{\Delta H_y}{\Delta y}$ともに変化が激しいため、少し位置がズレただけで${\rm div} {\bf H}$の値は大きく変化する。
+
+また、実験器具の形状から、y軸上の磁場を測定する際、ホール素子をコイルの口に密着させる事ができず、1-2cmほど口から離れた状態であった。
+$y=0.210$として、xの値を動かして${\rm div} {\bf H}$のグラフを描くと、\fr{x_divH}のようになり、$x=0.17[m]$周辺で${\rm div} {\bf H} = 0$となることがわかる。
+
+\cir{x_divH}{./graph/x_divH.png}{ xに対する${\rm div} {\bf H}$の値 }
+
+\subsection{x軸上の磁場分布からコイルの総巻数を推定する}
+
+ソレノイドコイルにアンペールの法則
+
+\[
+    \oint_C {\bf H}_s d{\bf s} = NI
+\]
+
+を適用することで、コイルの総巻数$N$を推定する。
+
+積分経路$C$として、コイルのx軸上を通り地球をぐるっと回って逆側の口からコイルに入るような経路を考える。
+実験結果の範囲では$x$が一定以上( $ x \gt 0.4 $ )になると$H$はほとんど0になっていることから、上記の経路での周回積分を求めるためには、$\int^{0.4}_{-0.4} H dx$を求めれば良いとわかる。
+また、ソレノイドコイルの磁場が、$x=0$について対称であると仮定すると、
+
+\[
+\int^{0.4}_{-0.4} H dx = 2 \int^{0.4}_0 H dx
+\]
+
+である。ここで、実験結果から台形法によって近似的に$\int^{0.4}_0 H dx$を求めると、$3.0 \times 10 ^ 3 $程度であった。
+このことから、$NI = 6.0 \times 10^3$であるとわかる。そして、実験時は$I = 1.0[A]$であったことから、$N = 6.0 \times 10^3$と求められる。
+
+教科書によると$N = 6000$であり、一致していることが分かる。
 
 \section{結論}
+
+
+
+\section{参考文献}
+
+\begin{itemize}
+    \item 理科年表オフィシャルサイト 地磁気活動度指数 \url{https://www.rikanenpyo.jp/kaisetsu/chigaku/chigaku_004.html}
+\end{itemize}
 
 \end{document}
