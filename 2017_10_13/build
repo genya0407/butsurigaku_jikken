@@ -1,5 +1,5 @@
 TARGET_FILE=article.tex
-docker run --rm -it --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex bash -c "latexmk $TARGET_FILE; latexmk $TARGET_FILE"
+docker run --rm -it --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex bash -c "latexmk -pvc $TARGET_FILE; latexmk $TARGET_FILE"
 rm ${TARGET_FILE%.tex}.dvi
 rm ${TARGET_FILE%.tex}.aux
 rm ${TARGET_FILE%.tex}.fls
