@@ -50,28 +50,74 @@ TEMPLATE
     self.map { |row| row[col_name] }
   end
   
-  def plot(targets: [{ x: 'x', y: 'y', name: nil }], type: :scatter, mode: :markers, layout: {}, file: nil)
+  def plot(targets: [{ x: 'x', y: 'y', title: nil }], options: {}, file: nil)
+    default_options = {
+      nokey: '',
+      tics: 'scale 3 font ",15"',
+      mxtics: '',
+      mytics: '',
+      grid: 'x y'
+    }
+    options = default_options.merge(options)
+    [:xl, :yl].each do |label_name|
+      if not options[label_name].nil?
+        options[label_name] = "'#{options[label_name]}' font ',20'"
+      end
+    end
     data = targets.map do |target|
       x_axis_name = target[:x]
       y_axis_name = target[:y]
       xs = by_col(x_axis_name)
       ys = by_col(y_axis_name)
 
-      [xs, ys]
+      [xs, ys, { title: (target[:title] || '凡例') }]
     end
 
     if file
       Numo.gnuplot do
-        output file
+        set terminal: 'png'
+        set output: file
+
+        options.each do |k, v|
+          set k, v
+        end
         plot *data
       end
     end
-
     Numo.noteplot do
+      options.each do |k, v|
+        set k, v
+      end
       plot *data
     end
   end
   
+  def slope(x:, y:)
+    xs, ys = fetch_xy(x, y)
+    cov(xs, ys)/variance(xs)
+  end
+
+  def segment(x:, y:)
+    xs, ys = fetch_xy(x, y)
+    ys.mean - slope(x: x, y: y) * xs.mean
+  end
+
+  def integral(x:, y:)
+    xs, ys = fetch_xy(x, y)
+    """
+    xs.drop(1).zip(xs).zip(ys.drop(1)).map do |(x1, x0), y|
+      y * (x1 - x0)
+    end.inject(:+)
+    """
+    xys = xs.zip(ys)
+    xys.drop(1).zip(xys).map do |xy1, xy0|
+      x0, y0 = xy0
+      x1, y1 = xy1
+
+      (y1 + y0) * (x1 - x0) / 2.0
+    end.inject(:+)
+  end
+
   def save_csv(filename)
     CSV.open(filename, 'wb') do |csv|
       csv << headers
@@ -81,6 +127,14 @@ TEMPLATE
     end
     filename
   end
+
+  private
+  def fetch_xy(x, y)
+    xs = by_col(x).to_a
+    ys = by_col(y).to_a
+
+    [xs, ys]
+  end
 end
 
 class Array
@@ -88,4 +142,25 @@ class Array
     headers = self.map { |row| row.keys }.flatten.uniq
     DF.new(headers, self)
   end
+
+  def mean
+    inject(:+)/count.to_f
+  end
 end
+
+# xs, ys = [[50,50],[50,70],[80,60],[70,90],[90,100]].transpose
+# cov(xs, ys) == 188.0
+def cov(xs, ys)
+  ex = xs.mean
+  ey = ys.mean
+
+  xs.zip(ys).map { |x,y| (x - ex) * (y - ey) }.mean
+end
+
+# xs = [50,60,70,70,100]
+# variance(xs) == 280.0
+def variance(xs)
+  ex = xs.mean
+  xs.map { |x| (x - ex)**2 }.mean
+end
+

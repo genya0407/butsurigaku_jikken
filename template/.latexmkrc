@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-$latex                       = 'uplatex -synctex=1 -halt-on-error %O %S';
+$latex                       = 'uplatex -shell-escape -synctex=1 -halt-on-error %O %S';
 $bibtex                      = 'upbibtex %O %B';
 $dvipdf                      = 'dvipdfmx %O -o %D %S';
 $makeindex                   = 'mendex -U %O -o %D %S';
