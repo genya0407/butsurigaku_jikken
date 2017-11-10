@@ -51,26 +51,38 @@ TEMPLATE
   end
   
   def plot(targets: [{ x: 'x', y: 'y', title: nil }], options: {}, file: nil)
+    # set options
+    colors = ['#43dde6', '#364f6b', '#fc5185', '#fccf4d']
+    point_types =[7, 9, 13]
+    line_options = point_types.map.with_index do |pt, pt_index|
+      colors.map.with_index do |color_name, index|
+        ["style line #{index + pt_index * colors.count + 1}", "pt #{pt} lc rgb \"#{color_name}\""]
+      end
+    end.inject(:+).to_h.merge('style increment': 'user')
     default_options = {
-      nokey: '',
+      key: 'box outside',
       tics: 'scale 3 font ",15"',
       mxtics: '',
       mytics: '',
-      grid: 'x y'
-    }
+      grid: 'x y',
+      xl: targets.first[:x],
+      yl: targets.first[:y],
+    }#.merge(line_options)
     options = default_options.merge(options)
     [:xl, :yl].each do |label_name|
       if not options[label_name].nil?
         options[label_name] = "'#{options[label_name]}' font ',20'"
       end
     end
+
+    # create data
     data = targets.map do |target|
       x_axis_name = target[:x]
       y_axis_name = target[:y]
       xs = by_col(x_axis_name)
       ys = by_col(y_axis_name)
 
-      [xs, ys, { title: (target[:title] || '凡例') }]
+      [xs, ys, { title: "\"#{(target[:title] || target[:y])}\"" }]
     end
 
     if file
