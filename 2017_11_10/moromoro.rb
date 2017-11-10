@@ -109,6 +109,14 @@ TEMPLATE
     cov(xs, ys)/variance(xs)
   end
 
+  def slope_error(x:, y:)
+    xs, ys = fetch_xy(x, y)
+
+    a = slope(x: x, y: y)
+    b = segment(x: x, y: y)
+    Math.sqrt(1.to_f/delta(xs, ys)*xs.map{|x| x**2}.inject(:+)) * sigma(xs, ys, a, b)
+  end
+
   def segment(x:, y:)
     xs, ys = fetch_xy(x, y)
     ys.mean - slope(x: x, y: y) * xs.mean
@@ -176,3 +184,17 @@ def variance(xs)
   xs.map { |x| (x - ex)**2 }.mean
 end
 
+# xs = [1,2,3,4]
+# ys = [3,5,7,9]
+# a = 2
+# b = 1
+# sigma(xs, ys, a, b) == 0
+def sigma(xs, ys, a, b)
+  n = xs.to_a.count
+  xys = xs.zip(ys)
+  Math.sqrt(1.to_f/(n-2)*(xys.map{ |x, y| (y - b - a*x)**2 }.inject(:+)))
+end
+
+def delta(xs, ys)
+  xs.count * xs.map { |x| x**2 }.inject(:+) - (xs.inject(:+))**2   
+end
