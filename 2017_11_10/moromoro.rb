@@ -12,6 +12,17 @@ class String
   end
 end
 
+class Hash
+  def except(*keys)
+    dup.except!(*keys)
+  end
+
+  def except!(*keys)
+    keys.each { |key| delete(key) }
+    self
+  end
+end
+
 class DF < Array
   attr_accessor :headers
 
@@ -50,7 +61,7 @@ TEMPLATE
     self.map { |row| row[col_name] }
   end
   
-  def plot(targets: [{ x: 'x', y: 'y', title: nil }], options: {}, file: nil)
+  def plot(targets: [{ x: 'x', y: 'y' }], options: {}, file: nil)
     # set options
     colors = ['#43dde6', '#364f6b', '#fc5185', '#fccf4d']
     point_types =[7, 9, 13]
@@ -82,7 +93,7 @@ TEMPLATE
       xs = by_col(x_axis_name)
       ys = by_col(y_axis_name)
 
-      [xs, ys, { title: "\"#{(target[:title] || target[:y])}\"" }]
+      [xs, ys, {title: target[:y]}.merge(target.except(:x, :y))]
     end
 
     if file
