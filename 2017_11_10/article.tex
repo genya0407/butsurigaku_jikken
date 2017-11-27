@@ -67,10 +67,94 @@
 
 \section{原理}
 
+\subsection*{単振子の特性}
 
+回転軸から振動子の重心までの距離をh[m]、振動子の質量をm[kg]、回転軸に対する振動子の慣性モーメントをI[kg${\rm m^2}$]とすると、振動子の振れの角度$\theta$は、
+
+\begin{eqnarray*}
+    I\frac{d^2\theta}{dt^2} & = & -mgh \sin \theta \\
+                      & \approx & -mgh \theta
+\end{eqnarray*}
+
+と表される。このことから、単振子の振動数f[Hz]は、
+
+\[
+    f = \frac{1}{2\pi}\sqrt{\frac{mgh}{I}}
+\]
+
+と求まる。
+
+\subsection*{回転軸の結合係数}
+
+一つの回転軸に同じ質量で同じ腕の長さの2つの振子(A, B)を同じ向きに固定して土台に置き、重力に従って垂れさせる。
+この時、片方の振子に力を加えて$\theta_A$だけ回転させて固定すると、もう片方の振子も回転軸から加わるトルクNによって回転する。
+そして、$\theta_B$だけ回転したところで重力のトルク$mgh\sin\theta_B$とNが釣り合って停止する。
+
+ところで、ねじれの角度$\Delta \theta = \theta_A - \theta_B$が$\pi$に比べて十分小さいとき、Nと$\Delta \theta$の間には比例関係があると考えて良い。
+このことから、結合定数cを導入することによってトルクの釣り合いの式は
+
+\[
+    mgh\sin\theta_B = c(\theta_A - \theta_B)
+\]
+
+と表されることが分かる。
+
+\subsection*{連成振動の特性}
+
+一つの回転軸に同じ質量で同じ腕の長さの2つの振子(A, B)を固定して振動させることを考える。
+このとき、振子A, Bはそれぞれ重力のモーメントと回転軸のねじれから生じる復元力のモーメントが働く。
+
+このことから運動方程式を立てると、
+
+\begin{eqnarray*}
+    I\frac{d^2\theta_A}{dt^2} & = & -mgh \sin \theta_A + c(\theta_B - \theta_A) \approx -mgh\theta_A  + c(\theta_B - \theta_A) \\
+    I\frac{d^2\theta_B}{dt^2} & = & -mgh \sin \theta_B - c(\theta_B - \theta_A) \approx -mgh\theta_B  - c(\theta_B - \theta_A)
+\end{eqnarray*}
+
+となる。これを、変数変換、
+
+\begin{eqnarray*}
+    \theta_G & = & \frac{\theta_A + \theta_B}{2} \\
+    \theta_R & = & \frac{\theta_A - \theta_B}{2}
+\end{eqnarray*}
+
+を用いて解くと、
+
+\begin{eqnarray*}
+    \theta_G & = & A\cos(\omega_1t + \phi_1) \\
+    \theta_R & = & B\cos(\omega_2t + \phi_2)
+\end{eqnarray*}
+
+となる。ただし、$\omega_1 = \sqrt{mgh/I}$、$\omega_2 = \sqrt{(mgh+2c)/I}$であり、A、B、$\phi_1$、$\phi_2$は未定定数である。
+
+ここで、$\theta_G$、$\theta_R$から$\theta_A$、$\theta_B$を求めると、
+
+\begin{eqnarray*}
+    \theta_A & = & A\cos(\omega_1t + \phi_1) + B\cos(\omega_2t + \phi_2) \\
+    \theta_B & = & A\cos(\omega_1t + \phi_1) - B\cos(\omega_2t + \phi_2)
+\end{eqnarray*}
+
+が得られる。このことから、2つの結合した振子の運動は基準振動の重ね合わせで表せることが分かる。
 
 \section{装置}
+
+実験で用いた剛体振子実験装置について説明する。
+この装置は、軽量のSUSパイプと0.35kgの重りからなる振り子、振子を吊るすための回転軸（SUSの細い棒）、そして軸を置く土台からなる。
+振り子についているネジを締めることで、振子と軸を固定することができる。
+さらに、土台には目盛りが付いており、振子が中心からどれだけ動いたかを測定することができる。
+
 \section{方法}
+
+まず、実験Aにより単振子の特性を調べる。
+次に、実験Bにより回転軸の結合係数を調べる。
+最後に、実験Cにより連成振動の特性を調べる。
+
+\subsection*{実験A. 単振子の特性}
+
+
+\subsection*{実験B. 回転軸の結合係数}
+\subsection*{実験C. 連成振動の特性}
+
 \section{データ}
 \section{解析}
 \section{考察}

@@ -1,12 +1,19 @@
 # Fdb version 3
-["dvipdf"] 1511804393 "article.dvi" "article.pdf" "article" 1511804393
-  "article.dvi" 1511804397 592 a6ac66f9d8839dfa533c54c54be4b026 "latex"
+["dvipdf"] 1511821091 "article.dvi" "article.pdf" "article" 1511821091
+  "article.dvi" 1511821093 6656 9ad3b5b239fd1c347e40234295892098 "latex"
   (generated)
   "article.pdf"
-["latex"] 1511804392 "article.tex" "article.dvi" "article" 1511804393
+["latex"] 1511821090 "article.tex" "article.dvi" "article" 1511821091
   "/etc/texmf/web2c/texmf.cnf" 1489940582 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/ptex/ascgrp/ascgrp.tfm" 1274206740 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1136768653 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
@@ -18,6 +25,8 @@
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty" 1335995445 18425 775b341047ce304520cc7c11ca41392e ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
+  "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd" 1359763108 961 d02606146ba5601b5645f987c92e6193 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1456875012 2210 5c54ab129b848a5071554186d0168766 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty" 1456875012 4160 c115536cf8d4ff25aa8c1c9bc4ecb79a ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty" 1457045335 81928 0154df1c78a3ed620f585b10d4169d63 ""
@@ -38,8 +47,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/web2c/euptex/uplatex.fmt" 1489941022 4022808 101253b373446dff3505bb0ceae086cb ""
-  "article.aux" 1511804397 555 08b53ad77062214981311318dfb7048c ""
-  "article.tex" 1511804396 1652 34eb41dbf8eee35059f09f4803207e6d ""
+  "article.aux" 1511821093 555 cb065ee0de7148f2f4c987f240f24d57 ""
+  "article.tex" 1511821091 5435 a5ffc212466951082657a4130747a41c ""
   (generated)
   "article.log"
   "article.dvi"
