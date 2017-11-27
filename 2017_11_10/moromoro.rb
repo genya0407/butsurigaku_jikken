@@ -93,7 +93,14 @@ TEMPLATE
       xs = by_col(x_axis_name)
       ys = by_col(y_axis_name)
 
-      [xs, ys, {title: target[:y]}.merge(target.except(:x, :y))]
+      trace = [xs, ys]
+      if yerror_axis_name = target[:yerror]
+        yerrors = by_col(yerror_axis_name)
+        trace.push(yerrors)
+      end
+      trace.push({title: target[:y]}.merge(target.except(:x, :y, :yerror)))
+
+      trace
     end
 
     if file
