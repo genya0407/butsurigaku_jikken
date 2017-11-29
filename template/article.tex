@@ -55,6 +55,19 @@
     \end{table}
 }
 
+\newcommand{\subtabs}[2]{
+    \input{|"ruby ./convert_csv.rb #1 1 '#2'"}
+}
+
+\newcommand{\tab}[4]{ % \tab{label}{csv-path}{caption}{分割数}
+    \begin{table}[htb]
+        \centering
+        \caption{#3}
+        \input{|"ruby ./convert_csv.rb #2 #4"}
+        \label{tab_#1}
+    \end{table}
+}
+
 \newcommand{\fr}[1]{図\ref{#1}}
 \newcommand{\tr}[1]{表\ref{#1}}
 \newcommand{\er}[1]{式(\ref{#1})}
