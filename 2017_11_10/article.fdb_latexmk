@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1511965434 "article.dvi" "article.pdf" "article" 1511965435
-  "article.dvi" 1511965441 17292 0d4fa6da31f390b0d0e2c5fcd8ebb0a7 "latex"
+["dvipdf"] 1511972625 "article.dvi" "article.pdf" "article" 1511972626
+  "article.dvi" 1511972629 20468 22f5af337e0e17b9ca73046ff244405b "latex"
   (generated)
   "article.pdf"
-["latex"] 1511965433 "article.tex" "article.dvi" "article" 1511965435
+["latex"] 1511972625 "article.tex" "article.dvi" "article" 1511972626
   "/etc/texmf/web2c/texmf.cnf" 1489940582 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/ptex/ascgrp/ascgrp.tfm" 1274206740 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
@@ -51,8 +51,12 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/web2c/euptex/uplatex.fmt" 1489941022 4022808 101253b373446dff3505bb0ceae086cb ""
-  "article.aux" 1511965441 877 af46daa78b066fd18642ac03bd005f9b ""
-  "article.tex" 1511965439 10467 6cc0434526dd45b1eef05ee0ec343f17 ""
+  "article.aux" 1511972629 1219 a2782669b61f22586b3a8aeaee25e0fb ""
+  "article.tex" 1511972628 12618 409ded2cda5e674d4461072df31d032e ""
+  "extractbb -O graph/a_with_model.png" 0 -1 0 ""
+  "extractbb -O graph/b_with_regression.png" 0 -1 0 ""
+  "graph/a_with_model.png" 1511969799 6158 6c89e78d3e4af7ecc0a56dd9afe11875 ""
+  "graph/b_with_regression.png" 1511970351 7868 c4ebc2cd575ee79a4d00b179815d781b ""
   "ruby ./convert_csv.rb csv/A.csv 1" 0 -1 0 ""
   "ruby ./convert_csv.rb csv/B.csv 3" 0 -1 0 ""
   (generated)

@@ -98,4 +98,8 @@ INPUT ruby ./convert_csv.rb csv/A.csv 1
 INPUT ruby ./convert_csv.rb csv/A.csv 1
 INPUT ruby ./convert_csv.rb csv/B.csv 3
 INPUT ruby ./convert_csv.rb csv/B.csv 3
+INPUT graph/a_with_model.png
+INPUT extractbb -O graph/a_with_model.png
+INPUT graph/b_with_regression.png
+INPUT extractbb -O graph/b_with_regression.png
 INPUT article.aux

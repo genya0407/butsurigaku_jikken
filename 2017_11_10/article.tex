@@ -173,7 +173,7 @@ $t=0$において、$\theta_A = \theta_0$, $\theta_b = 0$で振子が静止し�
     \theta_B & = & \theta_0\sin\left(\frac{\omega_1 + \omega_2}{2}t\right)\sin\left(\frac{\omega_2 - \omega_1}{2}t\right)
 \end{eqnarray*}
 
-である。これは、振幅振動を表している。この振幅振動の角周波数は$\omega_2 - \omega_1$であるから、その周期は$T = \frac{2\pi}{\omega_2 - \omega_1}$である。
+である。これは、振幅振動を表している。この振幅振動の角周波数は$\omega_2 - \omega_1$であるから、その周期は$T_{AB} = \frac{2\pi}{\omega_2 - \omega_1}$である。
 
 \section{装置}
 
@@ -262,7 +262,66 @@ $t=0$にて$s_A = 5[{\rm cm}]$,$s_B = 0[{\rm cm}]$の位置でポインタを置
 \end{itemize}
 
 \section{解析}
+
+\subsection*{実験A. 単振子の特性}
+
+振動数$f$の測定誤差$\Delta f$を見積もる。誤差伝播の法則から、
+
+\[
+    \Delta f = \frac{\partial f}{\partial t} \Delta t = - \frac{30}{t^2} \Delta t
+\]
+
+となる。
+ただし、計測時間の誤差である$\Delta t$は、ストップウォッチを押すタイミングのミスが原因であると考え$\Delta t = 0.2[{\rm s}]$とした。
+
+この値をエラーバーの大きさに取って\tr{A}をグラフにしたのが\fr{A}である。ただし、全質量がおもりの中心に集中していると仮定した単振子の振動数$f_{m} = \frac{1}{2\pi}\sqrt{\frac{g}{y}}$も同じグラフにプロットした。
+
+\fg{A}{graph/a_with_model.png}{剛体単振子の特性と単振子の理論特性}
+
+\subsection*{実験B. 回転軸の結合係数}
+
+\fr{B}をグラフにプロットしたのが\fr{B}である。ただし、最小二乗法によって傾き・切片を計算した直線を書き足してある。
+また、最小二乗法によって求めた傾きの誤差は有効桁数以下の大きさだったので無視した。
+
+\fg{B}{graph/b_with_regression.png}{重力によるモーメントとねじれによるモーメントの関係}
+
+\subsection*{実験C. 連成振動の特性}
+
+\subsubsection*{a. 角振動数$\omega_1$を与える初期条件}
+
+１回目と２回目の結果を平均した値を「30往復にかかった時間」とし、$\omega_1$を求めると、
+
+\[
+    \omega_1 = \frac{2\pi}{\frac{39.17 + 39.19}{2 \times 30}} = 4.811 [{\rm Hz}]
+\]
+
+となる。
+
+\subsubsection*{b. 角振動数$\omega_2$を与える初期条件}
+
+１回目と２回目の結果を平均した値を「30往復にかかった時間」とし、$\omega_2$を求めると、
+
+\[
+    \omega_2 = \frac{2\pi}{\frac{35.56 + 35.54}{2 \times 30}} = 5.302 [{\rm Hz}]
+\]
+
+となる。
+
+\subsubsection*{c. うなりを与える初期条件}
+
+１〜５回目の結果を平均した値を$T_{AB}$とすると、
+
+\[
+    T_{AB} = \frac{11.90 + 12.05 + 12.27 + 11.83 + 12.21}{5} = 12.05 [{\rm s}]
+\]
+
+となる。
+
 \section{考察}
+
+\subsection*{実験A. 単振子の特性}
+
+
 \section{結論}
 
 \end{document}

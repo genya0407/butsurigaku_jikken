@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  29 NOV 2017 14:23
+This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  29 NOV 2017 16:23
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -286,15 +286,20 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 
 ] [2] [3]
 (/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm) [4]
-(/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm) [5] [6]
+(/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm) [5]
+File: graph/a_with_model.png Graphic file (type bmp)
+
+<graph/a_with_model.png> [6]
+File: graph/b_with_regression.png Graphic file (type bmp)
+ <graph/b_with_regression.png> [7] [8]
 (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 3366 strings out of 493715
- 47312 string characters out of 6152556
+ 3380 strings out of 493715
+ 47555 string characters out of 6152556
  125411 words of memory out of 5000000
- 6890 multiletter control sequences out of 15000+600000
+ 6898 multiletter control sequences out of 15000+600000
  11821 words of font info for 62 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 44i,9n,43p,386b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,9n,43p,386b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (6 pages, 17292 bytes).
+Output written on article.dvi (8 pages, 20468 bytes).
