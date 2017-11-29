@@ -55,3 +55,47 @@ INPUT /usr/share/texlive/texmf-dist/tex/platex/base/ascmac.sty
 INPUT /usr/share/texlive/texmf-dist/tex/platex/base/tascmac.sty
 INPUT /usr/share/texlive/texmf-dist/tex/platex/base/tascmac.sty
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/ptex/ascgrp/ascgrp.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT article.aux
+INPUT article.aux
+OUTPUT article.aux
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisr-h.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-v.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-h.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+OUTPUT article.dvi
+INPUT ruby ./convert_csv.rb csv/A.csv 1
+INPUT ruby ./convert_csv.rb csv/A.csv 1
+INPUT ruby ./convert_csv.rb csv/B.csv 3
+INPUT ruby ./convert_csv.rb csv/B.csv 3
+INPUT article.aux

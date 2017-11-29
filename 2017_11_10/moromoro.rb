@@ -57,10 +57,18 @@ TEMPLATE
     self.class.new(headers, resulting_arr)
   end
 
+  def reset
+    to_a.to_df
+  end
+
   def by_col(col_name)
     self.map { |row| row[col_name] }
   end
   
+  def slice(*col_names)
+    self.map { |row| col_names.map { |k| [k, row[k]] }.to_h }.reset
+  end
+
   def plot(targets: [{ x: 'x', y: 'y' }], options: {}, file: nil)
     # set options
     colors = ['#43dde6', '#364f6b', '#fc5185', '#fccf4d']

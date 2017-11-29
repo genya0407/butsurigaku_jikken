@@ -7,6 +7,7 @@
 \usepackage{wrapfig}
 \usepackage{fancybox}
 \usepackage{ascmac}
+\usepackage{subfig}
 
 \setlength\floatsep{5pt}
 \setlength\textfloatsep{5pt}
@@ -16,9 +17,9 @@
 \newcommand{\fg}[3]{ % \fg{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=\textwidth]{./figs/#2}
+            \includegraphics[width=\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
@@ -30,29 +31,19 @@
                 手書きの図のため、巻末に添付
             \end{shadebox}
             \caption{#2}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
 
-\newcommand{\cir}[3]{ % \fg{label}{path}{caption},
+\newcommand{\cir}[3]{ % \cir{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=0.7\textwidth]{./figs/#2}
+            \includegraphics[width=0.85\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
          \end{center}
     \end{figure}
-}
-
-\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
-    \begin{table}[htb]
-          \begin{center}
-            \csvautotabular{./data/#2}
-            \caption{#3}
-            \label{#1}
-          \end{center}
-    \end{table}
 }
 
 \newcommand{\subtabs}[2]{
@@ -68,8 +59,8 @@
     \end{table}
 }
 
-\newcommand{\fr}[1]{図\ref{#1}}
-\newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\fr}[1]{図\ref{fg_#1}}
+\newcommand{\tr}[1]{表\ref{tab_#1}}
 \newcommand{\er}[1]{式(\ref{#1})}
 
 \begin{document}
@@ -230,7 +221,45 @@ $t=0$にて$s_A = 5[{\rm cm}]$,$s_B = 0[{\rm cm}]$の位置でポインタを置
 
 \subsection*{実験A. 単振子の特性}
 
-\tab{label}{csv-path}{caption}{分割数}
+\tab{A}{csv/A.csv}{単振子の特性}{1}
+
+\subsection*{実験B. 回転軸の結合係数}
+
+振子に力を加えない状態のポインタの値は
+
+\begin{eqnarray*}
+    s_A(0) & = & 3.5[{\rm mm}] \\
+    s_B(0) & = & 1.0[{\rm mm}]
+\end{eqnarray*}
+
+であった。
+
+また、\tr{B}の$s_A$,$s_B$に関しては、測定値からそれぞれ$s_A(0)$, $s_b(0)$を引いた値である。
+
+\tab{B}{csv/B.csv}{回転軸の結合係数}{3}
+
+\subsection*{実験C. 連成振動の特性}
+
+\subsubsection*{a. 角振動数$\omega_1$を与える初期条件}
+\begin{itemize}
+    \item[１回目] 39.17[s]
+    \item[２回目] 39.19[s]
+\end{itemize}
+
+\subsubsection*{b. 角振動数$\omega_2$を与える初期条件}
+\begin{itemize}
+    \item[１回目] 35.56[s]
+    \item[２回目] 35.54[s]
+\end{itemize}
+
+\subsubsection*{c. うなりを与える初期条件}
+\begin{itemize}
+    \item[１回目] 11.90[s]
+    \item[２回目] 12.05[s]
+    \item[３回目] 12.27[s]
+    \item[４回目] 11.83[s]
+    \item[５回目] 12.21[s]
+\end{itemize}
 
 \section{解析}
 \section{考察}
