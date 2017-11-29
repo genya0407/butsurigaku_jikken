@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1511821091 "article.dvi" "article.pdf" "article" 1511821091
-  "article.dvi" 1511821093 6656 9ad3b5b239fd1c347e40234295892098 "latex"
+["dvipdf"] 1511959989 "article.dvi" "article.pdf" "article" 1511959989
+  "article.dvi" 1511959993 11104 6be5052d79cfa92afe9ef6c4da454dc7 "latex"
   (generated)
   "article.pdf"
-["latex"] 1511821090 "article.tex" "article.dvi" "article" 1511821091
+["latex"] 1511959988 "article.tex" "article.dvi" "article" 1511959989
   "/etc/texmf/web2c/texmf.cnf" 1489940582 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/ptex/ascgrp/ascgrp.tfm" 1274206740 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
@@ -16,6 +16,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1136768653 1316 b636689f1933f24d1294acdf6041daaa ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1136768653 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-h.tfm" 1336914105 780 9d56a8f9483b0d090553358c515b7835 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/uptex/jis/upjisg-v.tfm" 1336914105 504 db18a8c0bf0b51f5d6237cc98872380d ""
@@ -47,8 +48,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/web2c/euptex/uplatex.fmt" 1489941022 4022808 101253b373446dff3505bb0ceae086cb ""
-  "article.aux" 1511821093 555 cb065ee0de7148f2f4c987f240f24d57 ""
-  "article.tex" 1511821091 5435 a5ffc212466951082657a4130747a41c ""
+  "article.aux" 1511959993 555 8580f5fc273e84860bbe5ed5ed14e8d7 ""
+  "article.tex" 1511959992 8223 09852516e97b40623beaf1faec4bb005 ""
   (generated)
   "article.log"
   "article.dvi"

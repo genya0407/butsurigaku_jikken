@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  27 NOV 2017 22:18
+This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  29 NOV 2017 12:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -230,17 +230,22 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 104.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 104.
+ [1
 
-] [2] [3]
+] [2] [3] [4]
 (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 2152 strings out of 493715
- 25506 string characters out of 6152556
+ 2154 strings out of 493715
+ 25527 string characters out of 6152556
  91236 words of memory out of 5000000
- 5696 multiletter control sequences out of 15000+600000
- 11245 words of font info for 59 fonts, out of 8000000 for 9000
+ 5697 multiletter control sequences out of 15000+600000
+ 11821 words of font info for 62 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 27i,6n,26p,306b,181s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,7n,26p,306b,167s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on article.dvi (3 pages, 6656 bytes).
+Output written on article.dvi (4 pages, 11104 bytes).
