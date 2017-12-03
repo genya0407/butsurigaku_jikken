@@ -280,7 +280,7 @@ $t=0$にて$s_A = 5[{\rm cm}]$,$s_B = 0[{\rm cm}]$の位置でポインタを置
 
 \subsection*{実験B. 回転軸の結合係数}
 
-\fr{B}をグラフにプロットしたのが\fr{B}である。ただし、最小二乗法によって傾き・切片を計算した直線を書き足してある。
+\fr{B}をグラフにプロットしたのが\fr{B}である。ただし、最小二乗法によって傾き・切片を計算した直線を書き足してある(傾き$q = 8.85$であった)。
 また、最小二乗法によって求めた傾きの誤差は有効桁数以下の大きさだったので無視した。
 
 \fg{B}{graph/b_with_regression.png}{重力によるモーメントとねじれによるモーメントの関係}
@@ -319,9 +319,113 @@ $t=0$にて$s_A = 5[{\rm cm}]$,$s_B = 0[{\rm cm}]$の位置でポインタを置
 
 \section{考察}
 
-\subsection*{実験A. 単振子の特性}
+\subsection{単振子モデルとのズレ}
 
+単振子モデル$f_m = \frac{1}{2\pi}\sqrt{\frac{g}{y}}$と、実験Aの結果とのズレ$\Delta f = |f_m - f|$をグラフにすると、\fr{difference_from_model_A}のようになる。
+このグラフを見ると、$y=0.4[{\rm m}]$においてズレが最小となっており、$y=0.4[{\rm m}]$から離れるに従ってズレが大きくなることが分かる。
+
+このことは、振子の腕に無視できない大きさの重さがあることから説明できる。
+すなわち、振子全体の重心$h$は腕の中心にある腕自体の重心と重りの重心の平均になるため、$y$よりも腕の中心に近い場所にあるのである。
+腕の中心に近い$y=0.4[{\rm m}]$においてズレが最小となっているのは、$y=0.4[{\rm m}]$付近において腕自体の重心と重りの重心が一致するためと考えられる。
+
+ところで、腕の長さは$R = 0.65[{\rm m}]$であるから、腕の重心は$y=\frac{R}{2}=0.33[{\rm m}]$にあるはずである。
+このように腕の重心の位置とズレが最小となる位置がずれるのは、振子の運動が軸受の摩擦などの影響で減衰振動になっていたからと考えられる。
+減衰振動の振動数は減衰なしの振動数に比べて小さくなるため、実験結果のグラフ全体が「下」にずれ込み、単振動モデルの振動数と一致する$y$が大きくなったと考えられる。
+
+\fg{difference_from_model_A}{graph/a_abs_error.png}{実験結果と単振子モデルのズレ}
+
+\subsection{$\omega_1 < \omega_2$となる理由}
+
+$\omega_1 < \omega_2$となる理由を定性的に考察する。
+
+質量$m$の物体が$F(x) = -kx$の力を受けるときの単振動の角振動数は$\omega = \sqrt{\frac{k}{m}}$であり、$k$が大きいと$\omega$が大きくなる。
+また、初期条件(b)では、重力だけでなく金属棒のねじれトルクが加わるため、初期条件(a)に比べて$k$の値が大きくなる。
+従って、$\omega_1 < \omega_2$となると考えられる。
+
+\subsection{$q$と$T_{AB}$の関係}
+
+まず、$q$の定義から、
+
+\[
+    c = \frac{mgh}{q}
+\]
+
+である。
+
+また、$\omega_1$,$\omega_2$の定義から、
+
+\begin{eqnarray*}
+    \omega_2 - \omega_1 & = & \sqrt{(mgh+2c)/I} - \sqrt{mgh/I} \\
+                        & = & \frac{1}{\sqrt{I}}\left( \sqrt{mgh + 2c} - \sqrt{mgh} \right) \\
+                        & = & \frac{1}{\sqrt{I}}\left( \sqrt{mgh + 2mgh/q} - \sqrt{mgh} \right) \\
+                        & = & \frac{1}{\sqrt{I/mgh}}\left( \sqrt{1 + 2/q} - 1 \right)
+\end{eqnarray*}
+
+また、$\omega_0 = \omega_1 = \sqrt{mgh/I}$から、
+
+\[
+    \omega_2 - \omega_1 = \omega_0 \left( \sqrt{1 + 2/q} - 1 \right)
+\]
+
+従って、
+
+\[
+    T_{AB} = \frac{2\pi}{\omega_2 - \omega_1} = \frac{2\pi}{\omega_0}\frac{1}{\left(\sqrt{1+2/q} - 1\right)}
+\]
+
+となる。
+
+また、実験Aの振子が$f = \frac{1}{2\pi}\sqrt{\frac{mgh}{I}}$に従っているとすると、実験結果より、$y=0.45[{\rm m}]$のとき、
+
+\begin{eqnarray*}
+    \omega_0 & = & 2\pi f \\
+             & = & 2\pi \times \frac{1}{2\pi}\sqrt{\frac{mgh}{I}} \\
+             & = & 2\pi \times 0.7474
+\end{eqnarray*}
+
+となる。
+
+これらから$T_{AB}$を求めると、$T_{AB} = 12.47[{\rm s}]$となる。
+ところで、$T_{AB}$の測定誤差$\Delta T_{AB}$は、
+
+\[
+    \Delta T_{AB} = \sqrt{\left( \frac{\partial T_{AB}}{\partial \omega_1} \right)^2 \Delta \omega_1^2 + \left( \frac{\partial T_{AB}}{\partial \omega_2}  \right)^2 \Delta \omega_2^2} \approx 1[{\rm s}]
+\]
+
+であるから、$T_{AB}$の実測値(11.90, 12.05, 12.27, 11.83, 12.21)のいずれも誤差幅の中に入る事がわかる。
+
+\subsection{連成振動の振子の振れ角の時間変化}
+
+振れ角の時間変化の周波数$f_{amp}$は、
+
+$$
+    f_{amp} = f_2 - f_1 = \frac{1}{T_2} - \frac{1}{T_1} = 0.07819[{\rm Hz}]
+$$
+
+または、
+
+$$
+    f_{amp} = f_{AB} = \frac{1}{T_{AB}} = 0.08297[{\rm Hz}]
+$$
+
+と求まる。
+
+これを元に振子A,Bの振れ角の時間変化をグラフにしたのが\fr{f_theta_A}、\fr{f_theta_B}である。
+ただし、$\theta_0 = \frac{5[{\rm cm}]}{64.5[{\rm cm}]} = 0.0787$とした。
+
+\cir{f_theta_A}{graph/t_to_theta_A.png}{振子Aの振れ角の時間変化}
+\cir{f_theta_B}{graph/t_to_theta_B.png}{振子Bの振れ角の時間変化}
+
+\subsection{電気回路における連成振動}
+
+同一のコンデンサC、同一のコイルLを用いて作成された２つのLC共振回路があるとする。
+さらに、これらの共振回路のコイルの間に、大きさMの相互インダクタンスがあるとする。
+この時、これら２つの回路に流れる電流は連成振動を成す。
+
+この連成振動の基準振動の角周波数は$\omega_1 = \frac{1}{\sqrt{C(L+M)}}$と$\omega_2 = \frac{1}{\sqrt{C(L-M)}}$の２つとなる。
 
 \section{結論}
+
+連成振動の実験結果は、その理論的なモデルに測定誤差の範囲で従う。
 
 \end{document}
