@@ -1,8 +1,2 @@
 TARGET_FILE=article.tex
 docker run --rm -it --user="$(id -u):$(id -g)" --net=none -v "$PWD":/data blang/latex bash -c "latexmk -pvc $TARGET_FILE; latexmk $TARGET_FILE"
-rm ${TARGET_FILE%.tex}.dvi
-rm ${TARGET_FILE%.tex}.aux
-rm ${TARGET_FILE%.tex}.fls
-rm ${TARGET_FILE%.tex}.fdb_latexmk
-rm ${TARGET_FILE%.tex}.log
-open ${TARGET_FILE%.tex}.pdf

@@ -71,13 +71,6 @@ TEMPLATE
 
   def plot(targets: [{ x: 'x', y: 'y' }], options: {}, file: nil)
     # set options
-    colors = ['#43dde6', '#364f6b', '#fc5185', '#fccf4d']
-    point_types =[7, 9, 13]
-    line_options = point_types.map.with_index do |pt, pt_index|
-      colors.map.with_index do |color_name, index|
-        ["style line #{index + pt_index * colors.count + 1}", "pt #{pt} lc rgb \"#{color_name}\""]
-      end
-    end.inject(:+).to_h.merge('style increment': 'user')
     default_options = {
       key: 'box outside',
       tics: 'scale 3 font ",15"',
@@ -86,7 +79,7 @@ TEMPLATE
       grid: 'x y',
       xl: targets.first[:x],
       yl: targets.first[:y],
-    }#.merge(line_options)
+    }
     options = default_options.merge(options)
     [:xl, :yl].each do |label_name|
       if not options[label_name].nil?

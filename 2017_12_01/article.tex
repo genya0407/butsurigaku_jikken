@@ -7,6 +7,7 @@
 \usepackage{wrapfig}
 \usepackage{fancybox}
 \usepackage{ascmac}
+\usepackage{subfig}
 
 \setlength\floatsep{5pt}
 \setlength\textfloatsep{5pt}
@@ -16,9 +17,9 @@
 \newcommand{\fg}[3]{ % \fg{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=\textwidth]{./figs/#2}
+            \includegraphics[width=\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
@@ -30,56 +31,52 @@
                 手書きの図のため、巻末に添付
             \end{shadebox}
             \caption{#2}
-            \label{#1}
+            \label{fg_#1}
         \end{center}
     \end{figure}
 }
 
-\newcommand{\cir}[3]{ % \fg{label}{path}{caption},
+\newcommand{\cir}[3]{ % \cir{label}{path}{caption},
     \begin{figure}
         \begin{center}
-            \includegraphics[width=0.7\textwidth]{./figs/#2}
+            \includegraphics[width=0.85\textwidth]{#2}
             \caption{#3}
-            \label{#1}
+            \label{fg_#1}
          \end{center}
     \end{figure}
 }
 
-\newcommand{\tab}[3]{ % \tab{label}{csv-path}{caption}
-    \begin{table}[htb]
-          \begin{center}
-            \csvautotabular{./data/#2}
-            \caption{#3}
-            \label{#1}
-          \end{center}
-    \end{table}
-}
-
 \newcommand{\subtabs}[2]{
-    \input{|"ruby ./convert_csv.rb #1 1 '#2'"}
+    \input{|"LC_CTYPE=C.UTF-8 ruby ./convert_csv.rb #1 1 '#2'"}
 }
 
 \newcommand{\tab}[4]{ % \tab{label}{csv-path}{caption}{分割数}
     \begin{table}[htb]
         \centering
         \caption{#3}
-        \input{|"ruby ./convert_csv.rb #2 #4"}
+        \input{|"LC_CTYPE=C.UTF-8 ruby ./convert_csv.rb #2 #4"}
         \label{tab_#1}
     \end{table}
 }
 
-\newcommand{\fr}[1]{図\ref{#1}}
-\newcommand{\tr}[1]{表\ref{#1}}
+\newcommand{\fr}[1]{図\ref{fg_#1}}
+\newcommand{\tr}[1]{表\ref{tab_#1}}
 \newcommand{\er}[1]{式(\ref{#1})}
 
 \begin{document}
 
 \section{目的}
-\section{原理}
-\section{装置}
-\section{方法}
+
+平面透過型解説酷使を用いて回折角の測定を行い、Na原子のスペクトルD線の波長を求める。
+
 \section{データ}
+
+\tab{data}{csv/data.csv}{各次数の光が現れた角度、またその波長}{1}
+
 \section{解析}
+
+\fg{data}{graph/a_with_calc.png}{各次数における波長}
+
 \section{考察}
 \section{結論}
 
