@@ -69,7 +69,7 @@ TEMPLATE
     self.map { |row| col_names.map { |k| [k, row[k]] }.to_h }.reset
   end
 
-  def plot(targets: [{ x: 'x', y: 'y' }], options: {}, file: nil)
+  def plot(targets: [{}], options: {}, file: nil)
     # set options
     default_options = {
       key: 'box outside',
@@ -88,7 +88,7 @@ TEMPLATE
     end
 
     # create data
-    data = targets.map do |target|
+    data = targets.select{ |target| target['function'].nil? }.map do |target|
       x_axis_name = target[:x]
       y_axis_name = target[:y]
       xs = by_col(x_axis_name)
@@ -99,10 +99,19 @@ TEMPLATE
         yerrors = by_col(yerror_axis_name)
         trace.push(yerrors)
       end
-      trace.push({title: target[:y]}.merge(target.except(:x, :y, :yerror)))
+      opts = {title: target[:y]}.merge(target.except(:x, :y, :yerror, :function))
+      trace.push(opts)
 
       trace
     end
+
+    functions = targets.select { |target| !target[:function].nil? }.map do |target|
+      opts = target.except(:x, :y, :yerror, :function)
+
+      [target[:function], opts]
+    end
+
+    data += functions
 
     if file
       Numo.gnuplot do

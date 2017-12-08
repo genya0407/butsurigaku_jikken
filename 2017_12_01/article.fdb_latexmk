@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1512644687 "article.dvi" "article.pdf" "article" 1512644732
-  "article.dvi" 1512644699 5948 9a1bf76beb4eded4a29f6f7c6f41490b "latex"
+["dvipdf"] 1512676740 "article.dvi" "article.pdf" "article" 1512676768
+  "article.dvi" 1512676753 9892 e2bea7d3523e7dd11b5afb2acd2ec8bd "latex"
   (generated)
   "article.pdf"
-["latex"] 1512644687 "article.tex" "article.dvi" "article" 1512644732
+["latex"] 1512676740 "article.tex" "article.dvi" "article" 1512676768
   "/etc/texmf/web2c/texmf.cnf" 1489940582 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/ptex/ascgrp/ascgrp.tfm" 1274206740 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
@@ -51,11 +51,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/web2c/euptex/uplatex.fmt" 1489941022 4022808 101253b373446dff3505bb0ceae086cb ""
   "LC_CTYPE=C.UTF-8 ruby ./convert_csv.rb csv/data.csv 1" 0 -1 0 ""
-  "article.aux" 1512644699 718 137cd725b1918cd342c0ec7a96fb0728 ""
-  "article.tex" 1512644698 1943 b79d21813b4a37cebc339ff755e4f91f ""
+  "article.aux" 1512676753 971 8da7ad3e985d97f56a561ed42a736ac8 ""
+  "article.tex" 1512676751 4777 4c1422b38aff4f9f6e3455be1a7238b4 ""
   "extractbb -O graph/a_with_calc.png" 0 -1 0 ""
-  "graph/a_with_calc.png" 1512640572 7114 2389b265c7745b8fb6e534767bc11a62 ""
+  "graph/a_with_calc.png" 1512676127 6601 78cbf88b9129bea0af0cad8c1c98503a ""
   (generated)
-  "article.dvi"
   "article.log"
   "article.aux"
+  "article.dvi"
