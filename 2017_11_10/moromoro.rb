@@ -79,13 +79,13 @@ TEMPLATE
       end
     end.inject(:+).to_h.merge('style increment': 'user')
     default_options = {
-      key: 'box outside',
+      key: 'box reverse',
       tics: 'scale 3 font ",15"',
       mxtics: '',
       mytics: '',
       grid: 'x y',
       xl: targets.first[:x],
-      yl: targets.first[:y],
+      yl: targets.first[:y]
     }#.merge(line_options)
     options = default_options.merge(options)
     [:xl, :yl].each do |label_name|
@@ -115,6 +115,10 @@ TEMPLATE
       Numo.gnuplot do
         set terminal: 'png'
         set output: file
+        set xlabel: 'offset 0,-1'
+        set ylabel: 'offset -2,0'
+        set bmargin: 6
+        set lmargin: 11
 
         options.each do |k, v|
           set k, v
