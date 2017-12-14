@@ -8,6 +8,7 @@
 \usepackage{fancybox}
 \usepackage{ascmac}
 \usepackage{subfig}
+\usepackage{rotating}
 
 \setlength\floatsep{5pt}
 \setlength\textfloatsep{5pt}
@@ -28,7 +29,7 @@
     \begin{figure}
         \begin{center}
             \begin{shadebox}
-                手書きの図のため、巻末に添付
+                巻末に添付
             \end{shadebox}
             \caption{#2}
             \label{fg_#1}
@@ -66,12 +67,44 @@
 \begin{document}
 
 \section{目的}
-\section{原理}
-\section{装置}
-\section{方法}
+
+プリズム分光器を用いて水素原子スペクトルを解析する。
+
 \section{データ}
+
+Na, Hg, Cdの既知のスペクトルに関して、波長とスケールの関係を調べて表にしたのが\tr{data}である。
+これをグラフにプロットして分散曲線を描いたのが\fr{bunsan}である。
+
+\tab{data}{csv/bunsan.csv}{実験データ}{2}
+
+また、4本の水素スペクトルを観測してそのスケールを調べたところ以下のようであった。
+
+\begin{itemize}
+  \item 1.87
+  \item 3.20
+  \item 4.05
+  \item 4.59
+\end{itemize}
+
 \section{解析}
+
+\tr{data}をグラフにプロットして分散曲線を描いたのが\fr{bunsan}である。図から、分散曲線の幅は高々$\Delta\lambda = 5[{\rm nm}]$程度と読み取れる。
+
+\dummyfig{bunsan}{分散曲線}
+
+また、この分散曲線を用いて4本の水素スペクトルの波長を読み取ると以下のようになる。
+
+\begin{itemize}
+    \item $662 \pm 5 [{\rm nm}]$
+    \item $486 \pm 5 [{\rm nm}]$
+    \item $432 \pm 5 [{\rm nm}]$
+    \item $410 \pm 5 [{\rm nm}]$
+\end{itemize}
+
 \section{考察}
+
+
+
 \section{結論}
 
 \end{document}
