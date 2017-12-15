@@ -117,6 +117,10 @@ TEMPLATE
       Numo.gnuplot do
         set terminal: 'png'
         set output: file
+        set xlabel: 'offset 0,-1'
+        set ylabel: 'offset -2,0'
+        set bmargin: 6
+        set lmargin: 20
 
         options.each do |k, v|
           set k, v
@@ -125,6 +129,11 @@ TEMPLATE
       end
     end
     Numo.noteplot do
+      set xlabel: 'offset 0,-1'
+      set ylabel: 'offset -2,0'
+      set bmargin: 6
+      set lmargin: 20
+
       options.each do |k, v|
         set k, v
       end

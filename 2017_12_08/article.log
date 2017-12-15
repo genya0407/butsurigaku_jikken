@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  14 DEC 2017 06:56
+This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/Debian) (preloaded format=uplatex 2017.3.19)  14 DEC 2017 17:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -294,14 +294,26 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
  [1
 
-] [2] (./article.aux) ) 
-Here is how much of TeX's memory you used:
- 3484 strings out of 493715
- 48892 string characters out of 6152556
- 125411 words of memory out of 5000000
- 7003 multiletter control sequences out of 15000+600000
- 10098 words of font info for 53 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 44i,11n,43p,239b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+]
+File: graph/lambda_square.png Graphic file (type bmp)
 
-Output written on article.dvi (2 pages, 4496 bytes).
+<graph/lambda_square.png>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 135.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 135.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 135.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 135.
+ [2] [3] [4] (./article.aux) ) 
+Here is how much of TeX's memory you used:
+ 3495 strings out of 493715
+ 49070 string characters out of 6152556
+ 124411 words of memory out of 5000000
+ 7009 multiletter control sequences out of 15000+600000
+ 11245 words of font info for 59 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 44i,11n,43p,360b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on article.dvi (4 pages, 10352 bytes).
